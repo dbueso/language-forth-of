@@ -1,19 +1,19 @@
 {
-  "name": "language-forth",
+  "name": "language-forth-of",
   "version": "0.2.3",
-  "description": "Forth language support in Atom",
+  "description": "Forth and Open Firmware language support in Atom",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mpgirro/language-forth"
+    "url": "https://github.com/dbueso/language-forth-of"
   },
   "bugs": {
-    "url": "https://github.com/mpgirro/language-forth/issues"
+    "url": "https://github.com/dbueso/language-forth-of/issues"
   },
-  "homepage": "https://github.com/mpgirro/language-forth",
-  "readme": "# Forth language support in Atom\n\nAdds syntax highlighting to Forth files in Atom.",
+  "homepage": "https://github.com/dbueso/language-forth-of",
+  "readme": "# Forth and Open Firmware language support in Atom\n\nAdds syntax highlighting to Forth files in Atom.",
   "readmeFilename": "README.md",
   "author": {
-    "name": "Maximilian Irro"
+    "name": "Daniel Bueso"
   },
   "license": "MIT",
   "engines": {

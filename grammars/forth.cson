@@ -4,13 +4,32 @@
   'fs'
   '4th'
   'forth'
+  'of'
 ]
 'foldingStartMarker': '/\\*\\*|\\{\\s*$'
 'foldingStopMarker': '\\*\\*/|^\\s*\\}'
 'name': 'Forth'
 'patterns': [
   {
-    'include': '#forth'
+    'include': '#comment'
+  }
+  {
+    'include': '#constant'
+  }
+  {
+    'include': '#storage'
+  }
+  {
+    'include': '#string'
+  }
+  {
+    'include': '#variable'
+  }
+  {
+    'include': '#word'
+  }
+  {
+    'include': '#word-def'
   }
 ]
 'repository':
@@ -62,30 +81,6 @@
       {
         'match': '(?<=^|\\s)(([&^]\\S)|(("|\')\\S("|\')))(?=\\s)'
         'name': 'constant.character.forth'
-      }
-    ]
-  'forth':
-    'patterns': [
-      {
-        'include': '#constant'
-      }
-      {
-        'include': '#comment'
-      }
-      {
-        'include': '#string'
-      }
-      {
-        'include': '#word'
-      }
-      {
-        'include': '#variable'
-      }
-      {
-        'include': '#storage'
-      }
-      {
-        'include': '#word-def'
       }
     ]
   'storage':
