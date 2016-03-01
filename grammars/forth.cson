@@ -172,4 +172,24 @@
       '0':
         'name': 'keyword.other.compile-only.forth'
     'name': 'meta.block.forth'
+    'patterns': [
+      {
+        'include': '#constant'
+      }
+      {
+        'include': '#comment'
+      }
+      {
+        'include': '#string'
+      }
+      {
+        'include': '#word'
+      }
+      {
+        'include': '#variable'
+      }
+      {
+        'include': '#storage'
+      }
+    ]
 'scopeName': 'source.forth'
