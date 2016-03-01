@@ -95,7 +95,7 @@
     'patterns': [
       {
         'comment': ''
-        'match': '(?i:((?<=ABORT" )|(?<=BREAK" )|(?<=\\." )|(C" )|(0")|(S\\\\?" )))[^"]+"'
+        'match': '(?i:((?<=ABORT" )|(?<=BREAK" )|(\\.")|(\")|(C" )|(0")|(S\\\\?" )))[^"]+"'
         'name': 'string.quoted.double.forth'
       }
       {
@@ -114,41 +114,47 @@
   'word':
     'patterns': [
       {
-        'match': '(?<=^|\\s)\\[(?i:(NIP|TUCK|ROT|SWAP|DUP|OVER|DROP|2SWAP|2DUP|2DROP|FNIP|FTUCK|FROT|FSWAP|FDUP|FOVER|FDROP|F2SWAP|F2DUP|F2DROP))\\](?=\\s)'
+        #'match': '(?<=^|\\s)\\[(?i:(NIP|TUCK|ROT|SWAP|DUP|OVER|DROP|2SWAP|2DUP|2DROP|FNIP|FTUCK|FROT|FSWAP|FDUP|FOVER|FDROP|F2SWAP|F2DUP|F2DROP))\\](?=\\s)'
+        'match': '(?i:(NIP|TUCK|ROT|SWAP|DUP|\\?DUP|OVER|DROP|2SWAP|2DUP|2DROP|FNIP|FTUCK|FROT|FSWAP|FDUP|FOVER|FDROP|F2SWAP|F2DUP|F2DROP))'
+        'name': 'keyword.other.word.forth'
+      }
+      #{
+      #  'match': '(?<=^|\\s)\\[(?i:(F\+|F-|F\*|F\*\*|FSQRT|F/|F\.S))\\](?=\\s)'
+      #  'name': 'keyword.other.word.forth'
+      #}
+      {
+        'match': '(?<=^|\\s)(?i:(EXECUTE|ABORT|CATCH|FLOAD|TO|C@|F@|>R|R>|!|/MOD|MOD))(?=\\s)'
+        #'match': '?i:(EXECUTE|ABORT|CATCH|FLOAD|C@|F@|>R|R>|!|/MOD|MOD))\\](?=\\s)'
         'name': 'keyword.other.word.forth'
       }
       {
-        'match': '(?<=^|\\s)\\[(?i:(F\+|F-|F\*|F\*\*|FSQRT|F/|F\.S))\\](?=\\s)'
-        'name': 'keyword.other.word.forth'
-      }
-      {
-        'match': '(?<=^|\\s)\\[(?i:(EXECUTE|ABORT|CATCH|C@|F@|>R|R>|!|/MOD|MOD))\\](?=\\s)'
+        'match': '(?<=^|\\s)(?i:(property|encode\-int|encode\-string|encode\\+))(?=\\s)'
         'name': 'keyword.other.word.forth'
       }
       {
         'match': '(?<=^|\\s)\\[(?i:(\\?DO|\\+LOOP|AGAIN|BEGIN|DEFINED|DO|ELSE|ENDIF|FOR|IF|IFDEF|IFUNDEF|LOOP|NEXT|REPEAT|THEN|UNTIL|WHILE))\\](?=\\s)'
         'name': 'keyword.control.immediate.forth'
       }
+      #{
+      #  'match': '(?<=^|\\s)(?i:(COMPILE-ONLY|IMMEDIATE|IS|RESTRICT|TO|WHAT\'S|]))(?=\\s)'
+      #  'name': 'keyword.operator.immediate.forth'
+      #}
       {
-        'match': '(?<=^|\\s)(?i:(COMPILE-ONLY|IMMEDIATE|IS|RESTRICT|TO|WHAT\'S|]))(?=\\s)'
-        'name': 'keyword.operator.immediate.forth'
-      }
-      {
-        'match': '(?<=^|\\s)(?i:(-DO|\\-LOOP|\\?DO|\\?LEAVE|\\+DO|\\+LOOP|ABORT\\"|AGAIN|AHEAD|BEGIN|CASE|DO|ELSE|ENDCASE|ENDIF|ENDOF|ENDTRY\\-IFERROR|ENDTRY|FOR|IF|IFERROR|LEAVE|LOOP|NEXT|RECOVER|REPEAT|RESTORE|THEN|TRY|U\\-DO|U\\+DO|UNTIL|WHILE))(?=\\s)'
+        'match': '(?<=^|\\s)(?i:(-DO|\\-LOOP|\\?DO|\\?LEAVE|\\+DO|\\+LOOP|ABORT\\"|AGAIN|AHEAD|BEGIN|CASE|DO|ELSE|ENDCASE|ENDIF|ENDOF|ENDTRY\\-IFERROR|ENDTRY|FOR|IF|IFERROR|LEAVE|LOOP|NEXT|OF|RECOVER|REPEAT|RESTORE|THEN|TRY|U\\-DO|U\\+DO|UNTIL|WHILE))(?=\\s)'
         'name': 'keyword.control.compile-only.forth'
       }
-      {
-        'match': '(?<=^|\\s)(?i:(\\?DUP-0=-IF|\\?DUP-IF|\\)|\\[|\\[\'\\]|\\[CHAR\\]|\\[COMPILE\\]|\\[IS\\]|\\[TO\\]|<COMPILATION|<INTERPRETATION|ASSERT\\(|ASSERT0\\(|ASSERT1\\(|ASSERT2\\(|ASSERT3\\(|COMPILATION>|DEFERS|DOES>|INTERPRETATION>|OF|POSTPONE))(?=\\s)'
-        'name': 'keyword.other.compile-only.forth'
-      }
-      {
-        'match': '(?<=^|\\s)(?i:(\'|<IS>|<TO>|CHAR|END-STRUCT|INCLUDE[D]?|LOAD|NEEDS|REQUIRE[D]?|REVISION|SEE|STRUCT|THRU|USE))(?=\\s)'
-        'name': 'keyword.other.non-immediate.forth'
-      }
-      {
-        'match': '(?<=^|\\s)(?i:(~~|BREAK:|BREAK"|DBG))(?=\\s)'
-        'name': 'keyword.other.warning.forth'
-      }
+      #{
+      #  'match': '(?<=^|\\s)(?i:(\\?DUP-0=-IF|\\?DUP-IF|\\)|\\[|\\[\'\\]|\\[CHAR\\]|\\[COMPILE\\]|\\[IS\\]|\\[TO\\]|<COMPILATION|<INTERPRETATION|ASSERT\\(|ASSERT0\\(|ASSERT1\\(|ASSERT2\\(|ASSERT3\\(|COMPILATION>|DEFERS|DOES>|INTERPRETATION>|OF|POSTPONE))(?=\\s)'
+      #  'name': 'keyword.other.compile-only.forth'
+      #}
+      #{
+      #  'match': '(?<=^|\\s)(?i:(\'|<IS>|<TO>|CHAR|END-STRUCT|INCLUDE[D]?|LOAD|NEEDS|REQUIRE[D]?|REVISION|SEE|STRUCT|THRU|USE))(?=\\s)'
+      #  'name': 'keyword.other.non-immediate.forth'
+      #}
+      #{
+      #  'match': '(?<=^|\\s)(?i:(~~|BREAK:|BREAK"|DBG))(?=\\s)'
+      #  'name': 'keyword.other.warning.forth'
+      #}
     ]
   'word-def':
     'begin': '(^:|\\s:)\\s(\\S+)\\s|(?i:(:NONAME))'
@@ -166,24 +172,4 @@
       '0':
         'name': 'keyword.other.compile-only.forth'
     'name': 'meta.block.forth'
-    'patterns': [
-      {
-        'include': '#constant'
-      }
-      {
-        'include': '#comment'
-      }
-      {
-        'include': '#string'
-      }
-      {
-        'include': '#word'
-      }
-      {
-        'include': '#variable'
-      }
-      {
-        'include': '#storage'
-      }
-    ]
 'scopeName': 'source.forth'

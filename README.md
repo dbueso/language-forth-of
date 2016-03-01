@@ -1,4 +1,4 @@
-# General Forth and Open Firmware language support in Atom
+# Forth and Open Firmware language support in Atom
 
 Adds syntax highlighting to Forth files in [Atom](https://atom.io).
 
